@@ -1,0 +1,292 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: url('/public/images/fondo_slot.jpg') no-repeat center center fixed;
+  background-size: cover;
+  background-attachment: fixed;
+  font-family: "Arial", sans-serif;
+  min-height: 100vh;
+}
+
+.slot-machine {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 16px;
+}
+
+
+.slot-frame-top {
+  width: 100%;
+  background: linear-gradient(45deg, #2d7a5f, #4caf50, #66bb6a, #4caf50, #2d7a5f);
+  border-radius: 20px 20px 0 0;
+  padding: 20px;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 -5px 15px rgba(76, 175, 80, 0.3), inset 0 2px 10px rgba(255, 255, 255, 0.2);
+}
+
+.casino-logo {
+  font-size: 32px;
+  font-weight: bold;
+  color: #ffd700;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8), 0 0 10px rgba(255, 215, 0, 0.6);
+  letter-spacing: 3px;
+}
+
+.decorative-lights {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 15px;
+}
+
+.light {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #ffd700, #ffb300);
+  box-shadow: 0 0 10px #ffd700, 0 0 20px #ffb300;
+  animation: blink 2s infinite alternate;
+}
+
+.light:nth-child(2) {
+  animation-delay: 0.4s;
+}
+.light:nth-child(3) {
+  animation-delay: 0.8s;
+}
+.light:nth-child(4) {
+  animation-delay: 1.2s;
+}
+.light:nth-child(5) {
+  animation-delay: 1.6s;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 0.4;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+}
+
+.slot-grid-container {
+  display: flex;
+  gap: 12px;
+  perspective: 1000px;
+  flex-direction: column;
+  background: linear-gradient(49deg, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0.9) 70%);
+  border-radius: 20px 20px 20px 20px;
+  box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.6), 0 10px 30px rgba(0, 0, 0, 0.4);
+  position: relative;
+  width: 900px;
+  top: 0px;
+  left: 70px;
+  padding-right: 90px;
+  padding-bottom: 80px;
+}
+
+.slot-row {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+}
+
+.slot-grid-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+}
+
+.slot-cylinder {
+  position: relative;
+  width: 160px;
+  height: 420px;
+  transform-origin: center center;
+  filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.3));
+}
+
+.cylinder-inner {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, #ffd700 0%, #ffcc02 20%, #ffb300 40%, #ff8f00 60%, #ff6f00 80%, #e65100 100%);
+  border-radius: 25px;
+  border: 4px solid #ffd700;
+  box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.4), inset 0 0 50px rgba(255, 215, 0, 0.2), 0 0 20px rgba(255, 215, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.cylinder-inner::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 6px;
+  height: 100%;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.6) 0%,
+    rgba(255, 255, 255, 0.2) 50%,
+    rgba(255, 255, 255, 0.1) 100%
+  );
+  transform: translateX(-50%);
+  border-radius: 3px;
+}
+
+.slot-cell {
+  width: 90%;
+  height: 110px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: all 0.3s ease;
+  left: 40px;
+  top: 40px
+}
+
+.symbol-frame {
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(255, 255, 255, 0.95) 0%,
+    rgba(245, 245, 245, 0.85) 70%,
+    rgba(220, 220, 220, 0.7) 100%
+  );
+  border-radius: 15px;
+  border: 3px solid #c0c0c0;
+  box-shadow: inset 0 3px 12px rgba(255, 255, 255, 0.8), inset 0 -3px 12px rgba(0, 0, 0, 0.2), 0 3px 10px
+    rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.symbol-frame::before {
+  content: "";
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  right: 5px;
+  height: 35%;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0.3) 50%, transparent 100%);
+  border-radius: 12px 12px 60% 60%;
+}
+
+.slot-cell.winner .symbol-frame {
+  background: radial-gradient(
+    ellipse at center,
+    rgba(76, 175, 80, 0.95) 0%,
+    rgba(102, 187, 106, 0.85) 70%,
+    rgba(129, 199, 132, 0.7) 100%
+  );
+  border-color: #4caf50;
+  box-shadow: inset 0 3px 12px rgba(255, 255, 255, 0.9), inset 0 -3px 12px rgba(76, 175, 80, 0.3), 0 0 25px
+    rgba(76, 175, 80, 0.8), 0 0 50px rgba(76, 175, 80, 0.4);
+  animation: winner-glow 1s infinite alternate;
+}
+
+@keyframes winner-glow {
+  0% {
+    transform: scale(1);
+    box-shadow: inset 0 3px 12px rgba(255, 255, 255, 0.9), inset 0 -3px 12px rgba(76, 175, 80, 0.3), 0 0 25px
+      rgba(76, 175, 80, 0.8), 0 0 50px rgba(76, 175, 80, 0.4);
+  }
+  100% {
+    transform: scale(1.05);
+    box-shadow: inset 0 3px 18px rgba(255, 255, 255, 1), inset 0 -3px 18px rgba(76, 175, 80, 0.4), 0 0 35px
+      rgba(76, 175, 80, 1), 0 0 70px rgba(76, 175, 80, 0.6);
+  }
+}
+
+.slot-image {
+  width: 85%;
+  height: 85%;
+  object-fit: contain;
+  filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.3));
+  z-index: 2;
+  position: relative;
+}
+
+.win-sparkle {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  font-size: 20px;
+  animation: sparkle 0.8s infinite alternate;
+  z-index: 3;
+}
+
+@keyframes sparkle {
+  0% {
+    opacity: 0.5;
+    transform: rotate(0deg) scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: rotate(180deg) scale(1.2);
+  }
+}
+
+.slot-frame-bottom {
+  width: 100%;
+  height: 25px;
+  background: linear-gradient(45deg, #2d7a5f, #4caf50, #66bb6a, #4caf50, #2d7a5f);
+  border-radius: 0 0 20px 20px;
+  position: relative;
+  box-shadow: 0 5px 15px rgba(76, 175, 80, 0.3), inset 0 -2px 10px rgba(255, 255, 255, 0.2);
+}
+
+.decorative-pattern {
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 10px,
+    rgba(45, 122, 95, 0.3) 10px,
+    rgba(45, 122, 95, 0.3) 20px
+  );
+  border-radius: 0 0 20px 20px;
+}
+
+.slot-machine::before {
+  content: "";
+  position: absolute;
+  top: -20px;
+  left: -20px;
+  right: -20px;
+  bottom: -20px;
+  background: radial-gradient(ellipse at center, rgba(76, 175, 80, 0.15) 0%, transparent 70%);
+  border-radius: 40px;
+  z-index: -1;
+}
+
+.winning-cell {
+  border: 3px solid gold;
+  box-shadow: 0 0 10px 4px gold;
+  animation: flash 0.5s alternate infinite;
+}
+
+@keyframes flash {
+  from { transform: scale(1); }
+  to { transform: scale(1.1); }
+}
+
+
